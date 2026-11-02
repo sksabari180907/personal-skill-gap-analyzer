@@ -42,7 +42,6 @@ career = st.selectbox(
     ["Data Analyst", "Data Scientist",
      "AI Engineer", "Business Analyst"]
 )
-
 st.divider()
 
 st.header("📊 Skill Assessment")
@@ -73,58 +72,3 @@ if st.button("Analyze My Skills 🚀"):
     average = sum(skills.values()) / 4
 
     st.metric("Overall Skill Score", f"{average:.1f}%")
-
-    st.subheader("Skill Gap Report")
-
-    for skill in skills:
-
-        gap = required[skill] - skills[skill]
-
-        if gap > 0:
-            st.warning(
-                f"{skill}: Improve by {gap}%"
-            )
-        else:
-            st.success(f"{skill}: Target achieved!")
-
-    st.subheader("📈 Skill Comparison")
-
-    st.bar_chart({
-        "Current Skills": skills,
-        "Required Skills": required
-    })
-
-    st.subheader("💡 Learning Recommendations")
-
-    for skill in skills:
-
-        if skills[skill] < 40:
-            st.write(f"📘 Learn {skill} from basics")
-
-        elif skills[skill] < 70:
-            st.write(f"📗 Practice {skill} regularly")
-
-        else:
-            st.write(f"🏆 Improve advanced {skill} skills")
-
-    st.success(
-        f"Great {name}! Your career goal is {career}."
-    )
-st.divider()
-
-st.header("🎯 Career Readiness")
-
-if st.button("Check My Career Readiness"):
-
-    score = (python + sql + excel + powerbi) / 4
-
-    st.metric("Readiness Score", f"{score:.1f}%")
-
-    if score >= 75:
-        st.success("Job Ready!")
-
-    elif score >= 50:
-        st.info("Almost Ready!")
-
-    else:
-        st.warning("Needs More Training!")
