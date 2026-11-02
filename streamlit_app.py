@@ -1,4 +1,23 @@
-import streamlit as st
+# CAREER READINESS PREDICTION
+
+st.divider()
+
+st.header("🎯 Career Readiness Prediction")
+
+if st.button("Check My Career Readiness"):
+
+    total_score = (python + sql + excel + powerbi) / 4
+
+    if total_score >= 75:
+        st.success("Job Ready! 🏆")
+
+    elif total_score >= 50:
+        st.info("Almost Ready! Keep Improving! 👍")
+
+    else:
+        st.warning("Needs More Training! 📚")
+
+    st.metric("Career Readiness Score", f"{total_score:.1f}%")import streamlit as st
 
 st.set_page_config(
     page_title="Skill Gap Analyzer",
